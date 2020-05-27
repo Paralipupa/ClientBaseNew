@@ -20,7 +20,7 @@ namespace ClientBase
         public String Inn { get; set; }
         public String Kpp { get; set; }
         public String Orgn { get; set; }
-        public String City { get; set; } // Код
+        public City City { get; set; }
         public String Bank { get; set; } // Код
         public String Note { get; set; }
         // БанкРС?

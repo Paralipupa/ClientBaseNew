@@ -97,7 +97,7 @@
                         <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
                         <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
                         <DataGridTextColumn Header="ОРГН" Binding="{Binding Path=Orgn}"/>
-                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City.Name}"/>
                         <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
                         <DataGridTextColumn Header="БанкРС"/>
                         <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note}"/>
