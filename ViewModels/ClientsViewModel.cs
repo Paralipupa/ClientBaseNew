@@ -43,5 +43,6 @@ namespace ClientBase
         }
 
         public ObservableCollection<Client> Clients { get; } = new ObservableCollection<Client>();
+        public Client SelectedClient { get; set; }
     }
 }
