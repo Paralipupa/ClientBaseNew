@@ -36,7 +36,7 @@ namespace ClientBase
 
         private void ClientsCollectionViewSource_Filter(Object sender, FilterEventArgs args)
         {
-            args.Accepted = false;
+            args.Accepted = true;
         }
     }
 }
