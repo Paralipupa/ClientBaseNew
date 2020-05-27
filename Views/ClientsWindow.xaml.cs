@@ -33,5 +33,10 @@ namespace ClientBase
                 case "-": button.Content = "+"; break;
             }
         }
+
+        private void ClientsCollectionViewSource_Filter(Object sender, FilterEventArgs args)
+        {
+            args.Accepted = false;
+        }
     }
 }

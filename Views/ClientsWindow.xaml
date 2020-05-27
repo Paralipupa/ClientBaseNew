@@ -12,6 +12,9 @@
     </Window.DataContext>
 
     <Window.Resources>
+
+        <CollectionViewSource x:Key="ClientsCollectionViewSource" Source="{Binding Clients}" Filter="ClientsCollectionViewSource_Filter"/>
+
         <Style x:Key="ClientCardStyle" TargetType="{x:Type Grid}">
             <Setter Property="Height" Value="100"/>
             <Style.Triggers>
@@ -33,6 +36,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
     </Window.Resources>
 
     <Grid>
@@ -88,7 +92,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <DataGrid Grid.Row="0" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                <DataGrid Grid.Row="0" ItemsSource="{Binding Source={StaticResource ClientsCollectionViewSource}}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="№" Binding="{Binding Path=Id}"/>
                         <DataGridTextColumn Header="Клиент" Binding="{Binding Path=Name}"/>
