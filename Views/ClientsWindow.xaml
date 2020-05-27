@@ -6,10 +6,34 @@
         xmlns:local="clr-namespace:ClientBase"
         mc:Ignorable="d"
         Title="ClientsnWindow" Height="450" Width="800">
-    
+
     <Window.DataContext>
         <local:ClientsViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <Style x:Key="ClientCardStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Height" Value="100"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Content, ElementName=ClientCardButton}" Value="-">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="Height">
+                                <DoubleAnimation To="100" Duration="0:0:0.3" DecelerationRatio=".9"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="Height">
+                                <DoubleAnimation To="0" Duration="0:0:0.3" AccelerationRatio=".9"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <Grid>
 
@@ -58,21 +82,34 @@
                 Статус
             </StatusBar>
 
-            <DataGrid DockPanel.Dock="Top" ItemsSource="{Binding Clients}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="№" Binding="{Binding Path=Id}"/>
-                    <DataGridTextColumn Header="Клиент" Binding="{Binding Path=Name}"/>
-                    <DataGridTextColumn Header="ShortName" Binding="{Binding Path=ShortName}"/>
-                    <DataGridTextColumn Header="ОПФ" Binding="{Binding Path=Opf}"/>
-                    <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
-                    <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
-                    <DataGridTextColumn Header="ОРГН" Binding="{Binding Path=Orgn}"/>
-                    <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
-                    <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
-                    <DataGridTextColumn Header="БанкРС"/>
-                    <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <DataGrid Grid.Row="0" ItemsSource="{Binding Clients}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="ShortName" Binding="{Binding Path=ShortName}"/>
+                        <DataGridTextColumn Header="ОПФ" Binding="{Binding Path=Opf}"/>
+                        <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
+                        <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
+                        <DataGridTextColumn Header="ОРГН" Binding="{Binding Path=Orgn}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
+                        <DataGridTextColumn Header="БанкРС"/>
+                        <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Row="1">
+                    <Button x:Name="ClientCardButton" Content="-" Focusable="False" Click="ClientCardButton_Click"/>
+                </Grid>
+                <Grid Grid.Row="2" Style="{DynamicResource ClientCardStyle}">
+                    <StackPanel/>
+                </Grid>
+            </Grid>
 
         </DockPanel>
 

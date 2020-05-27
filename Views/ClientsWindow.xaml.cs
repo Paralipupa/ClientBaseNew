@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -21,6 +22,16 @@ namespace ClientBase
         public ClientsWindow()
         {
             InitializeComponent();
+        }
+
+        private void ClientCardButton_Click(Object sender, RoutedEventArgs args)
+        {
+            Button button = sender as Button;
+            switch (button.Content)
+            {
+                case "+": button.Content = "-"; break;
+                case "-": button.Content = "+"; break;
+            }
         }
     }
 }
