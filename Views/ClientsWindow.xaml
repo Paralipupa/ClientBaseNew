@@ -53,8 +53,8 @@
                     <MenuItem Header="Посмотреть"/>
                     <MenuItem Header="Удалить"/>
                 </MenuItem>
-                <MenuItem Header="Настройки">
-                </MenuItem>
+                <MenuItem Header="Вид"/>
+                <MenuItem Header="Настройки"/>
                 <MenuItem Header="Помощь">
                     <MenuItem Header="О программе"/>
                 </MenuItem>
@@ -62,23 +62,15 @@
 
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button>
-                        Создать
-                    </Button>
-                    <Button>
-                        Посмотреть
-                    </Button>
-                    <Button>
-                        Удалить
-                    </Button>
+                    <Button>Создать</Button>
+                    <Button>Посмотреть</Button>
+                    <Button>Удалить</Button>
                 </ToolBar>
                 <ToolBar>
-                    <Button>
-                        Обновить
-                    </Button>
-                    <Button>
-                        Поиск
-                    </Button>
+                    <Button>Обновить</Button>
+                    <Button>ОчиститьФильтр</Button>
+                    <Button>Поиск</Button>
+                    <Separator/>
                     <TextBox Width="200">Поиск...</TextBox>
                 </ToolBar>
             </ToolBarTray>
