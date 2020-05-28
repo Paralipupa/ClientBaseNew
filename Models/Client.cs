@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClientBase
 {
-    class Client
+    class Client : BaseModel
     {
-        public Client()
-        {
-        }
+        public Client() { }
 
         public int Id { get; set; }
         public String Name { get; set; }
