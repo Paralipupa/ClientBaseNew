@@ -12,6 +12,5 @@ namespace ClientBase
         public User() { }
 
         public String Login { get; set; }
-        public String Password { get; set; }
     }
 }
