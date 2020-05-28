@@ -1,0 +1,39 @@
+﻿<Window
+    x:Class="ClientBase.Views.LoginWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ClientBase"
+    mc:Ignorable="d"
+    Title="Авторизация" Height="150" Width="300"
+    ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:LoginViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Логин</Label>
+                <TextBox Text="{Binding Path=Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Пароль</Label>
+                <PasswordBox x:Name="PasswordBox"></PasswordBox>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding Path=Enter}" CommandParameter="{Binding ElementName=PasswordBox}">Вход</Button>
+                <Button Grid.Column="1" Command="{Binding Path=Exit}">Отмена</Button>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+
+</Window>
