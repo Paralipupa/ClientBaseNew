@@ -66,6 +66,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\BaseCommand.cs" />
     <Compile Include="ViewModels\ClientsViewModel.cs" />
     <Compile Include="Views\ClientsWindow.xaml.cs">
       <DependentUpon>ClientsWindow.xaml</DependentUpon>
