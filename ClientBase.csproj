@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
@@ -83,10 +84,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="ViewModels\BaseCommand.cs" />
+    <Compile Include="ViewModels\CommandBase.cs" />
     <Compile Include="ViewModels\ClientsViewModel.cs" />
     <Compile Include="Views\ClientsWindow.xaml.cs">
       <DependentUpon>ClientsWindow.xaml</DependentUpon>

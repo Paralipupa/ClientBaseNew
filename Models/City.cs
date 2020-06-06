@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClientBase
 {
-    class City : BaseModel
+    class City : ModelBase
     {
         public City() { }
 

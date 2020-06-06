@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace ClientBase
 {
-    class LoginViewModel
+    class LoginViewModel : ViewModelBase
     {
         public LoginViewModel() { }
 
@@ -20,7 +20,7 @@ namespace ClientBase
         {
             get
             {
-                return new BaseCommand(
+                return new CommandBase(
                     parameter =>
                     {
                         PasswordBox box = parameter as PasswordBox;
@@ -47,7 +47,7 @@ namespace ClientBase
         {
             get
             {
-                return new BaseCommand(
+                return new CommandBase(
                     _ =>
                     {
                         Application.Current.Shutdown();

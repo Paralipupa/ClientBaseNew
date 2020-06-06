@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace ClientBase
 {
-    class ClientsViewModel
+    class ClientsViewModel : ViewModelBase
     {
         public ClientsViewModel()
         {
