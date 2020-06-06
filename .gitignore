@@ -3,8 +3,8 @@
 [Bb]in/
 [Oo]bj/
 
-ClientBase.sln
+*.user
 
+.DS_Store
 Desktop.ini
 Thumbs.db
-
