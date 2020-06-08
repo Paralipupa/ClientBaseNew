@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ClientBase
 {
-    class City : ModelBase
+    class Region : ModelBase
     {
-        public City() { }
+        public Region() { }
 
         public int Id { get; set; }
+        public int Number { get; set; }
         public String Name { get; set; }
-        public Region Region { get; set; }
     }
 }

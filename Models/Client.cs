@@ -14,13 +14,13 @@ namespace ClientBase
         public int Id { get; set; }
         public String Name { get; set; }
         public String ShortName { get; set; }
-        public String Opf { get; set; } // Код
-        public String Inn { get; set; }
-        public String Kpp { get; set; }
-        public String Orgn { get; set; }
+        public Opf Opf { get; set; } // Организационно-правовая форма
+        public String Inn { get; set; } // Идентификационный номер налогоплательщика
+        public String Kpp { get; set; } //
+        public String Ogrn { get; set; } // Основной государственный регистрационный номер
         public City City { get; set; }
-        public String Bank { get; set; } // Код
-        public String BankRS { get; set; }
+        public Bank Bank { get; set; }
+        public String BankRS { get; set; } // Расчётный счёт
         public String Note { get; set; }
     }
 }

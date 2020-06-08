@@ -88,16 +88,16 @@
                 </Grid.RowDefinitions>
                 <DataGrid Grid.Row="0" ItemsSource="{Binding Source={StaticResource ClientsCollectionViewSource}}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="№" Binding="{Binding Path=Id}"/>
-                        <DataGridTextColumn Header="Клиент" Binding="{Binding Path=Name}"/>
-                        <DataGridTextColumn Header="ShortName" Binding="{Binding Path=ShortName}"/>
+                        <DataGridTextColumn Header="Код" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Наименование" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Краткое наименование" Binding="{Binding Path=ShortName}"/>
                         <DataGridTextColumn Header="ОПФ" Binding="{Binding Path=Opf}"/>
                         <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
                         <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
-                        <DataGridTextColumn Header="ОРГН" Binding="{Binding Path=Orgn}"/>
+                        <DataGridTextColumn Header="ОГРН" Binding="{Binding Path=Ogrn}"/>
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=City.Name}"/>
                         <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
-                        <DataGridTextColumn Header="БанкРС" Binding="{Binding Path=BankRS}"/>
+                        <DataGridTextColumn Header="Расчётный счёт" Binding="{Binding Path=BankRS}"/>
                         <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note}"/>
                     </DataGrid.Columns>
                 </DataGrid>
