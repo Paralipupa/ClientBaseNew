@@ -137,6 +137,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MySql.Data">
+      <Version>8.0.20</Version>
+    </PackageReference>
     <PackageReference Include="PropertyChanged.Fody">
       <Version>3.2.8</Version>
     </PackageReference>
