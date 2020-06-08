@@ -105,11 +105,30 @@
                     <Button x:Name="ClientCardButton" Content="-" Focusable="False" Click="ClientCardButton_Click"/>
                 </Grid>
                 <Grid Grid.Row="2" Style="{DynamicResource ClientCardStyle}">
-                    <StackPanel>
-                        <TextBox Text="{Binding SelectedClient.Id}"/>
-                        <TextBox Text="{Binding SelectedClient.Name}"/>
-                        <TextBox Text="{Binding SelectedClient.City.Name}"/>
-                    </StackPanel>
+                    <TabControl TabStripPlacement="Top">
+                        <TabItem Header="Вкладка 1">
+                            <StackPanel>
+                                <TextBox Text="{Binding SelectedClient.Id}"/>
+                                <TextBox Text="{Binding SelectedClient.Name}"/>
+                                <TextBox Text="{Binding SelectedClient.City.Name}"/>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Вкладка 2">
+                            <StackPanel>
+                                <TextBox Text="{Binding SelectedClient.Id}"/>
+                                <TextBox Text="{Binding SelectedClient.Name}"/>
+                                <TextBox Text="{Binding SelectedClient.City.Name}"/>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Вкладка 3">
+                            <StackPanel>
+                                <TextBox Text="{Binding SelectedClient.Id}"/>
+                                <TextBox Text="{Binding SelectedClient.Name}"/>
+                                <TextBox Text="{Binding SelectedClient.City.Name}"/>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+
                 </Grid>
             </Grid>
 
