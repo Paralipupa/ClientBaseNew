@@ -17,6 +17,8 @@
 
         <CollectionViewSource x:Key="ClientsCollectionViewSource" Source="{Binding Clients}" Filter="ClientsCollectionViewSource_Filter"/>
 
+        <local:NewLineRemoveConverter x:Key="NewLineRemoveConverter"/>
+
         <Style x:Key="ClientCardStyle" TargetType="{x:Type Grid}">
             <Setter Property="Height" Value="100"/>
             <Style.Triggers>
@@ -98,7 +100,7 @@
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=City.Name}"/>
                         <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
                         <DataGridTextColumn Header="Расчётный счёт" Binding="{Binding Path=BankRS}"/>
-                        <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note}"/>
+                        <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note, Converter={StaticResource NewLineRemoveConverter}}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Grid Grid.Row="1">
