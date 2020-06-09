@@ -17,6 +17,14 @@ namespace ClientBase
     {
         public AllClientsViewModel()
         {
+            LoadExampleData();
+        }
+
+        public ObservableCollection<Client> Clients { get; } = new ObservableCollection<Client>();
+        public Client SelectedClient { get; set; }
+
+        public void LoadExampleData()
+        {
             for (int i = 0; i < 1; i++)
             {
                 Clients.Add(new Client() { Name = "111", City = new City() { Id = 1, Name = "City1" }, Note = "t12312" });
@@ -41,8 +49,5 @@ namespace ClientBase
                 Clients.Add(new Client() { Name = "655", City = new City() { Id = 1, Name = "City2" }, Note = "t44142" });
             }
         }
-
-        public ObservableCollection<Client> Clients { get; } = new ObservableCollection<Client>();
-        public Client SelectedClient { get; set; }
     }
 }
