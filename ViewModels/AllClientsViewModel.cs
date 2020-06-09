@@ -10,18 +10,51 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Input;
 using System.Windows;
+using System.Windows.Data;
+using System.Management;
 
 namespace ClientBase
 {
     class AllClientsViewModel : ViewModelBase
     {
+        private String searchedText;
+
         public AllClientsViewModel()
         {
+            ClientsView = CollectionViewSource.GetDefaultView(Clients);
+            ClientsView.Filter = FilterClients;
+
             LoadExampleData();
         }
 
         public ObservableCollection<Client> Clients { get; } = new ObservableCollection<Client>();
+        public ICollectionView ClientsView { get; }
         public Client SelectedClient { get; set; }
+        public String SearchedText
+        {
+            get
+            {
+                return searchedText;
+            }
+            set
+            {
+                if (searchedText != value)
+                {
+                    searchedText = value;
+                    ClientsView.Refresh();
+                }
+            }
+        }
+
+        public bool FilterClients(Object item)
+        {
+            if (String.IsNullOrEmpty(SearchedText))
+            {
+                return true;
+            }
+            Client client = (Client) item;
+            return client.Name.Contains(SearchedText);
+        }
 
         public void LoadExampleData()
         {
