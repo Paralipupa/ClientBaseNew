@@ -28,7 +28,7 @@ namespace ClientBase
 
                         if (password == box.Password)
                         {
-                            new ClientsWindow().Show();
+                            new AllClientsWindow().Show();
                             Application.Current.Windows[0].Close();
                         }
                         else

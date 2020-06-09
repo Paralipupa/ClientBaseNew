@@ -13,9 +13,9 @@ using System.Windows;
 
 namespace ClientBase
 {
-    class ClientsViewModel : ViewModelBase
+    class AllClientsViewModel : ViewModelBase
     {
-        public ClientsViewModel()
+        public AllClientsViewModel()
         {
             for (int i = 0; i < 1; i++)
             {

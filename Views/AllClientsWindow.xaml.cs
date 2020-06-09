@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 
 namespace ClientBase
 {
-    public partial class ClientsWindow : Window
+    public partial class AllClientsWindow : Window
     {
-        public ClientsWindow()
+        public AllClientsWindow()
         {
             InitializeComponent();
         }
