@@ -49,7 +49,7 @@ namespace ClientBase
         public ICommand OpenFilterWindow => new CommandBase(
             _ =>
             {
-                WindowService.Instance.Show(new FilterViewModel());
+                WindowService.Instance.Show(new FilterViewModel(), this);
             });
 
         public bool FilterClients(Object item)

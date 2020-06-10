@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:ClientBase"
     mc:Ignorable="d"
-    Title="FilterWindow" Height="200" Width="350" ResizeMode="NoResize" Topmost="True">
+    Title="FilterWindow" Height="200" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Topmost="True">
 
     <Window.DataContext>
         <local:FilterViewModel/>
