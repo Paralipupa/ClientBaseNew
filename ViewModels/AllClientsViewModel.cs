@@ -46,6 +46,12 @@ namespace ClientBase
             }
         }
 
+        public ICommand OpenFilterWindow => new CommandBase(
+            _ =>
+            {
+                WindowService.Instance.Show(new FilterViewModel());
+            });
+
         public bool FilterClients(Object item)
         {
             if (String.IsNullOrEmpty(SearchedText))

@@ -69,7 +69,7 @@
                 </ToolBar>
                 <ToolBar>
                     <Button>Обновить</Button>
-                    <Button>ОчиститьФильтр</Button>
+                    <Button Command="{Binding Path=OpenFilterWindow}">Фильтр</Button>
                     <Button>Поиск</Button>
                     <Separator/>
                     <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"></TextBox>

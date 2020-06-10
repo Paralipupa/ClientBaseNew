@@ -28,6 +28,7 @@ namespace ClientBase
             windows.Register<AboutViewModel, AboutWindow>();
             windows.Register<AllClientsViewModel, AllClientsWindow>();
             windows.Register<ClientViewModel, ClientWindow>();
+            windows.Register<FilterViewModel, FilterWindow>();
             windows.Register<LoginViewModel, LoginWindow>();
             windows.Register<SearchViewModel, SearchWindow>();
         }
