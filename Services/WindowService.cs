@@ -15,7 +15,7 @@ namespace ClientBase
         private WindowService() { }
 
         private Dictionary<Type, Type> ViewModelToWindowMap { get; set; } = new Dictionary<Type, Type>();
-        private Dictionary<Object, Window> OpenWindows { get; } = new Dictionary<Object, Window>();
+        private Dictionary<ViewModelBase, Window> OpenWindows { get; } = new Dictionary<ViewModelBase, Window>();
 
         public void Register<VM, W>() where W : Window, new() where VM : class
         {
@@ -27,30 +27,31 @@ namespace ClientBase
             ViewModelToWindowMap.Remove(typeof(VM));
         }
 
-        public void Show(Object viewmodel)
+        public void Show(ViewModelBase child, ViewModelBase owner = null)
         {
-            Window window = CreateWindow(viewmodel);
+            Window window = CreateWindow(child, owner);
             window.Show();
         }
 
-        public void ShowModal(Object viewmodel)
+        public void ShowModal(ViewModelBase viewmodel)
         {
             Window window = CreateWindow(viewmodel);
             window.ShowDialog();
         }
 
-        public void Close(Object viewmodel)
+        public void Close(ViewModelBase viewmodel)
         {
             Window window = OpenWindows[viewmodel];
             window.Close();
         }
 
-        public Window CreateWindow(Object viewmodel)
+        public Window CreateWindow(ViewModelBase child, ViewModelBase owner = null)
         {
-            Window window = (Window) Activator.CreateInstance(ViewModelToWindowMap[viewmodel.GetType()]);
-            window.DataContext = viewmodel;
-            window.Loaded += (s, a) => { OpenWindows.Add(viewmodel, window); };
-            window.Closed += (s, a) => { OpenWindows.Remove(viewmodel); };
+            Window window = (Window) Activator.CreateInstance(ViewModelToWindowMap[child.GetType()]);
+            window.DataContext = child;
+            window.Owner = owner != null ? OpenWindows[owner] : null;
+            window.Loaded += (s, a) => { OpenWindows.Add(child, window); };
+            window.Closed += (s, a) => { OpenWindows.Remove(child); };
             return window;
         }
     }
