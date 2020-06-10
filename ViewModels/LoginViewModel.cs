@@ -1,4 +1,5 @@
 ﻿
+using ClientBase.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,43 +17,32 @@ namespace ClientBase
 
         public String Login { get; set; }
 
-        public ICommand Enter
-        {
-            get
+        public ICommand Enter => new CommandBase(
+            parameter =>
             {
-                return new CommandBase(
-                    parameter =>
-                    {
-                        PasswordBox box = parameter as PasswordBox;
-                        String password = box.Password;
+                PasswordBox box = parameter as PasswordBox;
+                String password = box.Password;
 
-                        if (password == box.Password)
-                        {
-                            new AllClientsWindow().Show();
-                            Application.Current.Windows[0].Close();
-                        }
-                        else
-                        {
-                            _ = MessageBox.Show("Неправильно указан логин или пароль.", "Ошибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    },
-                    _ =>
-                    {
-                        return String.IsNullOrWhiteSpace(Login) == false;
-                    });
-            }
-        }
-
-        public ICommand Exit
-        {
-            get
+                if (password == box.Password)
+                {
+                    WindowService windows = WindowService.Instance;
+                    windows.Show(new AllClientsViewModel());
+                    windows.Close(this);
+                }
+                else
+                {
+                    _ = MessageBox.Show("Неправильно указан логин или пароль.", "Ошибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            },
+            _ =>
             {
-                return new CommandBase(
-                    _ =>
-                    {
-                        Application.Current.Shutdown();
-                    });
-            }
-        }
+                return String.IsNullOrWhiteSpace(Login) == false;
+            });
+
+        public ICommand Exit => new CommandBase(
+            _ =>
+            {
+                WindowService.Instance.Close(this);
+            });
     }
 }
