@@ -11,13 +11,13 @@ using System.Windows.Input;
 
 namespace ClientBase
 {
-    class LoginViewModel : ViewModelBase
+    class LoginViewModel : ViewModel
     {
         public LoginViewModel() { }
 
         public String Login { get; set; }
 
-        public ICommand Enter => new CommandBase(
+        public ICommand Enter => new Command(
             parameter =>
             {
                 PasswordBox box = parameter as PasswordBox;
@@ -39,7 +39,7 @@ namespace ClientBase
                 return String.IsNullOrWhiteSpace(Login) == false;
             });
 
-        public ICommand Exit => new CommandBase(
+        public ICommand Exit => new Command(
             _ =>
             {
                 WindowService.Instance.Close(this);

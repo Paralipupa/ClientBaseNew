@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ClientBase
 {
-    class SearchViewModel : ViewModelBase
+    class SearchViewModel : ViewModel
     {
         public SearchViewModel() { }
     }

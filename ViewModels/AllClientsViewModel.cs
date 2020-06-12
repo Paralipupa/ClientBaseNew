@@ -15,7 +15,7 @@ using System.Management;
 
 namespace ClientBase
 {
-    class AllClientsViewModel : ViewModelBase
+    class AllClientsViewModel : ViewModel
     {
         private String searchedText;
 
@@ -46,7 +46,7 @@ namespace ClientBase
             }
         }
 
-        public ICommand OpenFilterWindow => new CommandBase(
+        public ICommand OpenFilterWindow => new Command(
             _ =>
             {
                 WindowService.Instance.Show(new FilterViewModel(), this);

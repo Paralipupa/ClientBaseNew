@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace ClientBase
 {
-    public class CommandBase : ICommand
+    class Command : ICommand
     {
         private Action<Object> execute;
         private Func<Object, bool> can;
@@ -25,7 +25,7 @@ namespace ClientBase
             }
         }
 
-        public CommandBase(Action<Object> execute, Func<Object, bool> can = null)
+        public Command(Action<Object> execute, Func<Object, bool> can = null)
         {
             this.execute = execute;
             this.can = can;

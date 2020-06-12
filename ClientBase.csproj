@@ -62,7 +62,7 @@
     <Compile Include="Services\WindowService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\FilterViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Bases\ViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
@@ -93,10 +93,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Bases\Model.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="ViewModels\CommandBase.cs" />
+    <Compile Include="Bases\Command.cs" />
     <Compile Include="ViewModels\AllClientsViewModel.cs" />
     <Compile Include="Views\AllClientsWindow.xaml.cs">
       <DependentUpon>AllClientsWindow.xaml</DependentUpon>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClientBase
 {
-    class Opf : ModelBase
+    class Opf : Model
     {
         public Opf() { }
 

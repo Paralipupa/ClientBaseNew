@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClientBase
 {
-    class ViewModelBase : INotifyPropertyChanged
+    abstract class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

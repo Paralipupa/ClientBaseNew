@@ -15,7 +15,7 @@ namespace ClientBase
         private WindowService() { }
 
         private Dictionary<Type, Type> ViewModelToWindowMap { get; set; } = new Dictionary<Type, Type>();
-        private Dictionary<ViewModelBase, Window> OpenWindows { get; } = new Dictionary<ViewModelBase, Window>();
+        private Dictionary<ViewModel, Window> OpenWindows { get; } = new Dictionary<ViewModel, Window>();
 
         public void Register<VM, W>() where W : Window, new() where VM : class
         {
@@ -27,25 +27,25 @@ namespace ClientBase
             ViewModelToWindowMap.Remove(typeof(VM));
         }
 
-        public void Show(ViewModelBase child, ViewModelBase owner = null)
+        public void Show(ViewModel child, ViewModel owner = null)
         {
             Window window = CreateWindow(child, owner);
             window.Show();
         }
 
-        public void ShowModal(ViewModelBase viewmodel)
+        public void ShowModal(ViewModel viewmodel)
         {
             Window window = CreateWindow(viewmodel);
             window.ShowDialog();
         }
 
-        public void Close(ViewModelBase viewmodel)
+        public void Close(ViewModel viewmodel)
         {
             Window window = OpenWindows[viewmodel];
             window.Close();
         }
 
-        public Window CreateWindow(ViewModelBase child, ViewModelBase owner = null)
+        public Window CreateWindow(ViewModel child, ViewModel owner = null)
         {
             Window window = (Window) Activator.CreateInstance(ViewModelToWindowMap[child.GetType()]);
             window.DataContext = child;
