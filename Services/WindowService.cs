@@ -39,6 +39,12 @@ namespace ClientBase
             window.ShowDialog();
         }
 
+        public void Focus(ViewModel viewmodel)
+        {
+            Window window = OpenWindows[viewmodel];
+            window.Focus();
+        }
+
         public void Close(ViewModel viewmodel)
         {
             Window window = OpenWindows[viewmodel];
