@@ -45,10 +45,19 @@ namespace ClientBase
             }
         }
 
+        public FilterViewModel FilterViewModel { get; set; }
+
         public ICommand OpenFilterWindow => new Command(
             _ =>
             {
-                WindowService.Instance.Show(new FilterViewModel(), this);
+                if (FilterViewModel == null)
+                {
+                    WindowService.Instance.Show(FilterViewModel = new FilterViewModel(this), this);
+                }
+                else
+                {
+                    WindowService.Instance.Focus(FilterViewModel);
+                }
             });
 
         public bool FilterClients(Object item)
