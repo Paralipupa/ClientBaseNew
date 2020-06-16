@@ -38,9 +38,8 @@ namespace ClientBase
             }
             set
             {
-                if (searchedText != value)
+                if (Set(ref searchedText, value))
                 {
-                    searchedText = value;
                     ClientsView.Refresh();
                 }
             }
