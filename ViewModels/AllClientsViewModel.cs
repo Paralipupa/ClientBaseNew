@@ -45,6 +45,7 @@ namespace ClientBase
             }
         }
 
+        public FilterParametersObject FilterParameters { get; set; } = new FilterParametersObject();
         public FilterViewModel FilterViewModel { get; set; }
 
         public ICommand OpenFilterWindow => new Command(
@@ -62,12 +63,39 @@ namespace ClientBase
 
         public bool FilterClients(Object item)
         {
-            if (String.IsNullOrEmpty(SearchedText))
-            {
-                return true;
-            }
             Client client = (Client) item;
-            return client.Name.Contains(SearchedText);
+
+            if (String.IsNullOrEmpty(SearchedText) == false)
+            {
+                if (client.Name.Contains(SearchedText) == false)
+                {
+                    return false;
+                }
+            }
+
+            if (String.IsNullOrEmpty(FilterParameters.Var1) == false)
+            {
+                if (client.Name.Contains(FilterParameters.Var1) == false)
+                {
+                    return false;
+                }
+            }
+            if (String.IsNullOrEmpty(FilterParameters.Var2) == false)
+            {
+                if (client.Name.Contains(FilterParameters.Var2) == false)
+                {
+                    return false;
+                }
+            }
+            if (String.IsNullOrEmpty(FilterParameters.Var3) == false)
+            {
+                if (client.Name.Contains(FilterParameters.Var3) == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void LoadExampleData()

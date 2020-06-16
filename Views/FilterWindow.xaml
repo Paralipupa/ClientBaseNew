@@ -18,6 +18,16 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Grid></Grid>
+    <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding Path=AllClientsViewModel.FilterParameters.Var1, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path=AllClientsViewModel.FilterParameters.Var2, Mode=TwoWay}"/>
+            <TextBox Text="{Binding Path=AllClientsViewModel.FilterParameters.Var3, Mode=TwoWay}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Command="{Binding Path=Filter}">Filter</Button>
+                <Button Command="{Binding Path=Clear}">Clear</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 
 </Window>
