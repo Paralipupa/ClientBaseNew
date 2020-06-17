@@ -65,20 +65,6 @@
                     <Button>Удалить</Button>
                 </ToolBar>
                 <ToolBar>
-                    <Button Command="{Binding Path=Refresh}" Content="{StaticResource RefreshIcon}"/>
-                    <Button Command="{Binding Path=OpenFilterWindow}">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Content" Value="{StaticResource FilterClearIcon}"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding FilterParameters.IsClear}" Value="False">
-                                        <Setter Property="Content" Value="{StaticResource FilterDirtyIcon}"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <Button Command="{Binding Path=OpenSearchWindow}" Content="{StaticResource SearchIcon}"/>
                     <Separator/>
                     <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"></TextBox>
                 </ToolBar>
@@ -94,21 +80,43 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <DataGrid Grid.Row="0" ItemsSource="{Binding Path=ClientsView}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Код" Binding="{Binding Path=Id}"/>
-                        <DataGridTextColumn Header="Наименование" Binding="{Binding Path=Name}"/>
-                        <DataGridTextColumn Header="Краткое наименование" Binding="{Binding Path=ShortName}"/>
-                        <DataGridTextColumn Header="ОПФ" Binding="{Binding Path=Opf}"/>
-                        <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
-                        <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
-                        <DataGridTextColumn Header="ОГРН" Binding="{Binding Path=Ogrn}"/>
-                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City.Name}"/>
-                        <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
-                        <DataGridTextColumn Header="Расчётный счёт" Binding="{Binding Path=BankRS}"/>
-                        <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note, Converter={StaticResource NewLineRemoveConverter}}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Button Command="{Binding Path=Refresh}" Content="{StaticResource RefreshIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
+                        <Button Command="{Binding Path=OpenFilterWindow}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Content" Value="{StaticResource FilterClearIcon}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding FilterParameters.IsClear}" Value="False">
+                                            <Setter Property="Content" Value="{StaticResource FilterDirtyIcon}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button Command="{Binding Path=OpenSearchWindow}" Content="{StaticResource SearchIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
+                    </StackPanel>
+                    <DataGrid Grid.Column="1" ItemsSource="{Binding Path=ClientsView}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Код" Binding="{Binding Path=Id}"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Краткое наименование" Binding="{Binding Path=ShortName}"/>
+                            <DataGridTextColumn Header="ОПФ" Binding="{Binding Path=Opf}"/>
+                            <DataGridTextColumn Header="ИНН" Binding="{Binding Path=Inn}"/>
+                            <DataGridTextColumn Header="КПП" Binding="{Binding Path=Kpp}"/>
+                            <DataGridTextColumn Header="ОГРН" Binding="{Binding Path=Ogrn}"/>
+                            <DataGridTextColumn Header="Город" Binding="{Binding Path=City.Name}"/>
+                            <DataGridTextColumn Header="Банк" Binding="{Binding Path=Bank}"/>
+                            <DataGridTextColumn Header="Расчётный счёт" Binding="{Binding Path=BankRS}"/>
+                            <DataGridTextColumn Header="Примечание" Binding="{Binding Path=Note, Converter={StaticResource NewLineRemoveConverter}}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
                 <Grid Grid.Row="1">
                     <Button x:Name="ClientCardButton" Content="-" Focusable="False" Click="ClientCardButton_Click"/>
                 </Grid>
