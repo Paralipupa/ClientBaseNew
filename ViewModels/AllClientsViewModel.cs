@@ -51,6 +51,31 @@ namespace ClientBase
         public ICommand Refresh => new Command(
             _ =>
             {
+                ClientsView.Refresh();
+                ClientsView.MoveCurrentTo(null);
+            });
+
+        public ICommand Add => new Command(
+            _ =>
+            {
+            });
+
+        public ICommand Edit => new Command(
+            _ =>
+            {
+            },
+            _ =>
+            {
+                return SelectedClient != null;
+            });
+
+        public ICommand Delete => new Command(
+            _ =>
+            {
+            },
+            _ =>
+            {
+                return SelectedClient != null;
             });
 
         public ICommand OpenFilterWindow => new Command(
