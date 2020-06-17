@@ -65,7 +65,7 @@
                     <Button>Удалить</Button>
                 </ToolBar>
                 <ToolBar>
-                    <Button Content="{StaticResource RefreshIcon}"/>
+                    <Button Command="{Binding Path=Refresh}" Content="{StaticResource RefreshIcon}"/>
                     <Button Command="{Binding Path=OpenFilterWindow}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -78,7 +78,7 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button Content="{StaticResource SearchIcon}"/>
+                    <Button Command="{Binding Path=OpenSearchWindow}" Content="{StaticResource SearchIcon}"/>
                     <Separator/>
                     <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"></TextBox>
                 </ToolBar>

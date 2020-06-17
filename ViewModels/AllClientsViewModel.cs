@@ -48,6 +48,11 @@ namespace ClientBase
         public FilterParametersObject FilterParameters { get; set; } = new FilterParametersObject();
         public FilterViewModel FilterViewModel { get; set; }
 
+        public ICommand Refresh => new Command(
+            _ =>
+            {
+            });
+
         public ICommand OpenFilterWindow => new Command(
             _ =>
             {
@@ -59,6 +64,12 @@ namespace ClientBase
                 {
                     WindowService.Instance.Focus(FilterViewModel);
                 }
+            });
+
+        public ICommand OpenSearchWindow => new Command(
+            _ =>
+            {
+                WindowService.Instance.Show(new SearchViewModel(), this);
             });
 
         public bool FilterClients(Object item)
