@@ -60,13 +60,8 @@
 
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button>Создать</Button>
-                    <Button>Посмотреть</Button>
-                    <Button>Удалить</Button>
-                </ToolBar>
-                <ToolBar>
+                    <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"/>
                     <Separator/>
-                    <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"></TextBox>
                 </ToolBar>
             </ToolBarTray>
 
@@ -85,22 +80,29 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Button Command="{Binding Path=Refresh}" Content="{StaticResource RefreshIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
-                        <Button Command="{Binding Path=OpenFilterWindow}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2">
-                            <Button.Style>
-                                <Style TargetType="{x:Type Button}">
-                                    <Setter Property="Content" Value="{StaticResource FilterClearIcon}"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding FilterParameters.IsClear}" Value="False">
-                                            <Setter Property="Content" Value="{StaticResource FilterDirtyIcon}"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                        </Button>
-                        <Button Command="{Binding Path=OpenSearchWindow}" Content="{StaticResource SearchIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
-                    </StackPanel>
+                    <DockPanel Grid.Column="0">
+                        <StackPanel DockPanel.Dock="Top" VerticalAlignment="Top">
+                            <Button Command="{Binding Path=Refresh}" Content="{StaticResource RefreshIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
+                            <Button Command="{Binding Path=OpenFilterWindow}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Content" Value="{StaticResource FilterClearIcon}"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding FilterParameters.IsClear}" Value="False">
+                                                <Setter Property="Content" Value="{StaticResource FilterDirtyIcon}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Command="{Binding Path=OpenSearchWindow}" Content="{StaticResource SearchIcon}" Focusable="False" Height="26" Width="26" Margin="5,5,5,0" Padding="2"/>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                            <Button Content="{StaticResource AddIcon}" Focusable="False" Height="26" Width="26" Margin="5,0,5,5" Padding="2"/>
+                            <Button Content="{StaticResource EditIcon}" Focusable="False" Height="26" Width="26" Margin="5,0,5,5" Padding="2"/>
+                            <Button Content="{StaticResource DeleteIcon}" Focusable="False" Height="26" Width="26" Margin="5,0,5,5" Padding="2"/>
+                        </StackPanel>
+                    </DockPanel>
                     <DataGrid Grid.Column="1" ItemsSource="{Binding Path=ClientsView}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Код" Binding="{Binding Path=Id}"/>
