@@ -16,6 +16,7 @@ namespace ClientBase
         public LoginViewModel() { }
 
         public String Login { get; set; }
+        public bool PasswordIndicator { get; set; }
 
         public ICommand Enter => new Command(
             parameter =>
@@ -36,13 +37,20 @@ namespace ClientBase
             },
             _ =>
             {
-                return String.IsNullOrWhiteSpace(Login) == false;
+                return String.IsNullOrWhiteSpace(Login) == false && PasswordIndicator;
             });
 
         public ICommand Exit => new Command(
             _ =>
             {
                 WindowService.Instance.Close(this);
+            });
+
+        public ICommand ChangePasswordIndicator => new Command(
+            parameter =>
+            {
+                PasswordBox box = parameter as PasswordBox;
+                PasswordIndicator = String.IsNullOrEmpty(box.Password) == false;
             });
     }
 }
