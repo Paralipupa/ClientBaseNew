@@ -65,9 +65,20 @@
                     <Button>Удалить</Button>
                 </ToolBar>
                 <ToolBar>
-                    <Button>Обновить</Button>
-                    <Button Command="{Binding Path=OpenFilterWindow}">Фильтр</Button>
-                    <Button>Поиск</Button>
+                    <Button Content="{StaticResource RefreshIcon}"/>
+                    <Button Command="{Binding Path=OpenFilterWindow}">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Content" Value="{StaticResource FilterClearIcon}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding FilterParameters.IsClear}" Value="False">
+                                        <Setter Property="Content" Value="{StaticResource FilterDirtyIcon}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Content="{StaticResource SearchIcon}"/>
                     <Separator/>
                     <TextBox Text="{Binding Path=SearchedText, UpdateSourceTrigger=PropertyChanged, Delay=500}" Width="200"></TextBox>
                 </ToolBar>

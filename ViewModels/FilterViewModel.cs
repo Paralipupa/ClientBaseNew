@@ -42,5 +42,13 @@ namespace ClientBase
         public String Var1 { get; set; }
         public String Var2 { get; set; }
         public String Var3 { get; set; }
+
+        public bool IsClear
+        {
+            get
+            {
+                return String.IsNullOrEmpty(Var1) && String.IsNullOrEmpty(Var2) && String.IsNullOrEmpty(Var3);
+            }
+        }
     }
 }
