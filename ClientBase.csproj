@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bases\ObservableObject.cs" />
+    <Compile Include="Behaviors\DataGridBehavior.cs" />
     <Compile Include="Converters\NewLineRemoveConverter.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Opf.cs" />

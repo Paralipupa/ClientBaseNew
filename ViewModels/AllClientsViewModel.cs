@@ -29,6 +29,7 @@ namespace ClientBase
 
         public ObservableCollection<Client> Clients { get; } = new ObservableCollection<Client>();
         public ICollectionView ClientsView { get; }
+        public ObservableCollection<Client> SelectedClients { get; set; } = new ObservableCollection<Client>();
         public Client SelectedClient { get; set; }
         public String SearchedText
         {
