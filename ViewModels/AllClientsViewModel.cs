@@ -67,7 +67,7 @@ namespace ClientBase
             },
             _ =>
             {
-                return SelectedClient != null;
+                return SelectedClients.Count == 1;
             });
 
         public ICommand Delete => new Command(
@@ -76,7 +76,7 @@ namespace ClientBase
             },
             _ =>
             {
-                return SelectedClient != null;
+                return SelectedClients.Count == 1;
             });
 
         public ICommand OpenFilterWindow => new Command(
